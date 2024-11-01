@@ -14,7 +14,7 @@ mesh = dolfinx.mesh.create_unit_cube(
 )
 
 mesh.topology.create_connectivity(mesh.topology.dim - 2, mesh.topology.dim)
-mesh_tags = dolfinx.mesh.meshtags(mesh, mesh.topology.dim - 2, [], [])
+mesh_tags = dolfinx.mesh.meshtags(mesh, mesh.topology.dim - 2, [0, 1], [1, 1])
 
 adios4dolfinx.write_meshtags(
     meshtags=mesh_tags,
